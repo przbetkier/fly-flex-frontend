@@ -25,6 +25,8 @@
 
   </mat-grid-tile>
 
+  <app-spinner *ngIf="loadingDestinations"></app-spinner>
+
   <mat-grid-tile *ngIf="isDestinationVisible()"
           [colspan]="4">
 

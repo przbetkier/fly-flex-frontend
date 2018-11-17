@@ -14,6 +14,7 @@ export class HomepageComponent {
 
     loading: boolean;
     noConnections: boolean;
+    loadingDestinations = false;
 
     public airports: Airport[];
     public destinations: Airport[];
@@ -55,15 +56,15 @@ export class HomepageComponent {
 
     private airportChanged() {
         if (this.canFetchDestinations()) {
-            this.loading = true;
+            this.loadingDestinations = true;
             this.flightService.findConnections(this.you, this.friend).subscribe((response: any) => {
                     this.destinations = response.connections;
                     this.noConnections = this.destinations.length === 0;
-                    this.loading = false;
+                    this.loadingDestinations = false;
                 },
                 (error) => {
                     console.log(error);
-                    this.loading = false;
+                    this.loadingDestinations = false;
                 });
         }
     }
