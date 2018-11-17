@@ -1,9 +1,37 @@
-<mat-form-field>
-  <mat-select placeholder="Pick an airport">
-    <mat-option *ngFor="let airport of airports" [value]="airport.name">
-      {{airport.iataCode}}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
+<mat-grid-list cols="4" rowHeight="100px">
+  <mat-grid-tile
+    [colspan]="2"
+    [rowspan]="3">
 
-<p (click)="navigate()">Show flights!</p>
+    <mat-form-field class="select">
+      <mat-select [(value)]="you" placeholder="You">
+        <mat-option *ngFor="let airport of airports" [value]="airport.value">
+          {{airport.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-grid-tile>
+
+  <mat-grid-tile
+    [colspan]="2"
+    [rowspan]="3">
+
+    <mat-form-field class="select">
+      <mat-select [(value)]="friend" placeholder="Friend">
+        <mat-option *ngFor="let airport of airports" [value]="airport.value">
+          {{airport.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </mat-grid-tile>
+
+  <mat-grid-tile
+    [colspan]="4"
+    [rowspan]="1">
+
+    <a class="card_travel btn-large" (click)="navigate()"><i class="material-icons right">card_travel</i>Search!</a>
+  </mat-grid-tile>
+
+</mat-grid-list>
+

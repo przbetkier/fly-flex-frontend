@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 
-export interface Airport {
-  name: string;
-  iataCode: string;
+export interface Food {
+  value: string;
+  viewValue: string;
 }
 
 @Component({
@@ -13,18 +13,23 @@ export interface Airport {
 })
 export class HomepageComponent implements OnInit {
 
-  airports: Airport[] = [
-    {name: 'Poznan', iataCode: 'Poznan (POZ)'},
-    {name: 'Berlin', iataCode: 'Berlin (BXL)'}
-  ];
+  public airports;
+  public you;
+  public friend;
+
+  ngOnInit() {
+    this.airports = [
+      {value: 'POZ', viewValue: 'Poznan'},
+      {value: 'BER', viewValue: 'Berlin'},
+      {value: 'LON', viewValue: 'London'}
+    ];
+  }
 
   constructor(private router: Router) {
   }
 
-  ngOnInit() {
-  }
-
   navigate() {
-    this.router.navigateByUrl('/flights');
+    console.log(`/flights/${this.you}/${this.friend}`);
+    // this.router.navigateByUrl(`/flights/${this.you}/${this.friend}`);
   }
 }
