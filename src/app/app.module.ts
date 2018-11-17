@@ -7,10 +7,13 @@ import {RouterModule} from '@angular/router';
 import {FlightsListComponent} from './component/flights-list/flights-list.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
+  MatAutocompleteModule,
   MatButtonModule,
   MatCardModule,
   MatFormFieldModule,
+  MatGridListModule,
   MatIconModule,
+  MatInputModule,
   MatListModule,
   MatOptionModule,
   MatSelectModule,
@@ -18,6 +21,8 @@ import {
   MatToolbarModule,
 } from '@angular/material';
 import {LayoutModule} from '@angular/cdk/layout';
+import {NgxMatSelectSearchModule} from 'ngx-mat-select-search';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {BasicFlightComponent} from './component/basic-flight/basic-flight.component';
 import localePl from '@angular/common/locales/pl';
 import localePlExtra from '@angular/common/locales/extra/pl';
@@ -44,8 +49,17 @@ registerLocaleData(localePl, 'pl-PL', localePlExtra);
     MatSidenavModule,
     MatIconModule,
     MatListModule,
+    MatInputModule,
     MatCardModule,
+    MatGridListModule,
     MatSelectModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    NgxMatSelectSearchModule,
+    MatAutocompleteModule,
+    FormsModule,
     RouterModule.forRoot(
       [
         {path: '', component: HomepageComponent},
@@ -54,8 +68,8 @@ registerLocaleData(localePl, 'pl-PL', localePlExtra);
     )
   ],
   providers: [{
-      provide: LOCALE_ID,
-      useValue: 'pl-PL'
+    provide: LOCALE_ID,
+    useValue: 'pl-PL'
   }],
   bootstrap: [AppComponent]
 })
