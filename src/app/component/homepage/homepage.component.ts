@@ -43,7 +43,11 @@ export class HomepageComponent {
     }
 
     navigate() {
+      if (isNullOrUndefined(this.selectedDestination)) {
         this.router.navigateByUrl(`/flights/${this.you}/${this.friend}`);
+      } else {
+        this.router.navigateByUrl(`/flights/${this.you}/${this.friend}/${this.selectedDestination}`);
+      }
     }
 
     yourAirportChanged(): void {
