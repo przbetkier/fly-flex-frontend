@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {BasicFlight} from '../../model/basic-flight';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-basic-flight',
@@ -11,9 +12,14 @@ export class BasicFlightComponent implements OnInit {
   @Input()
   flight: BasicFlight;
 
-  constructor() { }
+  constructor(private router: Router) {
+  }
 
   ngOnInit() {
+  }
+
+  navigateToDetails() {
+    this.router.navigate([`/flights/POZ/POZ/POZ`]);
   }
 
 }

@@ -1,0 +1,33 @@
+span {
+  vertical-align: middle;
+}
+
+img {
+  width: 32px;
+  margin-right: 10px;
+}
+
+.place {
+  font-size: 10px;
+}
+
+.time {
+  font-size: 22px;
+  color: #20867b;
+  vertical-align: middle;
+}
+
+.price {
+  text-align: center;
+  font-size: 22px;
+  color: #20867b;
+}
+
+.direction-arrow {
+  font-size: 30px;
+}
+
+.price-section {
+  border-bottom: 1px dotted;
+  border-top: 1px dotted;
+}

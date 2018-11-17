@@ -1,0 +1,58 @@
+<mat-grid-list cols="4" rowHeight="110px" class="card group">
+
+  <mat-grid-tile
+    [colspan]="2"
+    [rowspan]="5">
+    <mat-card class="card single">
+      <mat-card-header>
+        <mat-card-title class="title">YOU</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+
+        <app-single-flight [date]="route.firstOutbound.date.departure"
+                           [from]="route.firstOutbound.departureAirport"
+                           [to]="route.firstOutbound.arrivalAirport"
+                           [price]="route.firstOutbound.price.oneway">
+
+        </app-single-flight>
+        <app-single-flight [date]="route.firstOutbound.date.returnWay"
+                           [from]="route.firstOutbound.arrivalAirport"
+                           [to]="route.firstOutbound.departureAirport"
+                           [price]="route.firstOutbound.price.returnWay">
+        </app-single-flight>
+
+        <p class="price">Total: {{route.firstOutbound.price.returnWay + route.firstOutbound.price.oneway | currency: 'PLN'}}</p>
+
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+
+  <mat-grid-tile
+    [colspan]="2"
+    [rowspan]="5">
+    <mat-card class="card single">
+      <mat-card-header>
+        <mat-card-title class="title">FRIEND</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+
+        <app-single-flight [date]="route.secoundOutbound.date.departure"
+                           [from]="route.secoundOutbound.departureAirport"
+                           [to]="route.secoundOutbound.arrivalAirport"
+                           [price]="route.secoundOutbound.price.oneway">
+
+        </app-single-flight>
+        <app-single-flight [date]="route.secoundOutbound.date.returnWay"
+                           [from]="route.secoundOutbound.arrivalAirport"
+                           [to]="route.secoundOutbound.departureAirport"
+                           [price]="route.secoundOutbound.price.returnWay">
+        </app-single-flight>
+
+        <p class="price">Total: {{route.secoundOutbound.price.returnWay + route.secoundOutbound.price.oneway | currency: 'PLN'}}</p>
+
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+
+
+</mat-grid-list>
