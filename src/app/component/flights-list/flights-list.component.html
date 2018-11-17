@@ -1,4 +1,5 @@
 <div class="list-container">
+    <h2><img (click)="goToMainScreen()" src="/assets/arrow_back.png"/> Lista dostępnych połączeń</h2>
     <div *ngFor="let flight of flights">
         <app-basic-flight [flight]="flight"></app-basic-flight>
     </div>
