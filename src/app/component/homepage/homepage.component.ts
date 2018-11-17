@@ -29,7 +29,6 @@ export class HomepageComponent implements OnInit {
   }
 
   navigate() {
-    console.log(`/flights/${this.you}/${this.friend}`);
-    // this.router.navigateByUrl(`/flights/${this.you}/${this.friend}`);
+    this.router.navigateByUrl(`/flights/${this.you}/${this.friend}`);
   }
 }

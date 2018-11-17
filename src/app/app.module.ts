@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {HomepageComponent} from './component/homepage/homepage.component';
@@ -10,8 +10,10 @@ import {
   MatAutocompleteModule,
   MatButtonModule,
   MatCardModule,
-  MatFormFieldModule, MatGridListModule,
-  MatIconModule, MatInputModule,
+  MatFormFieldModule,
+  MatGridListModule,
+  MatIconModule,
+  MatInputModule,
   MatListModule,
   MatOptionModule,
   MatSelectModule,
@@ -21,12 +23,19 @@ import {
 import {LayoutModule} from '@angular/cdk/layout';
 import {NgxMatSelectSearchModule} from 'ngx-mat-select-search';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {BasicFlightComponent} from './component/basic-flight/basic-flight.component';
+import localePl from '@angular/common/locales/pl';
+import localePlExtra from '@angular/common/locales/extra/pl';
+import {registerLocaleData} from '@angular/common';
+
+registerLocaleData(localePl, 'pl-PL', localePlExtra);
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
     FlightsListComponent,
+    BasicFlightComponent,
   ],
   imports: [
     BrowserModule,
@@ -54,11 +63,15 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     RouterModule.forRoot(
       [
         {path: '', component: HomepageComponent},
-        {path: 'flights', component: FlightsListComponent}
+        {path: 'flights/:sourceACode/:sourceBCode', component: FlightsListComponent}
       ]
     )
   ],
-  providers: [],
+  providers: [{
+    provide: LOCALE_ID,
+    useValue: 'pl-PL'
+  }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
