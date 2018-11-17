@@ -2,7 +2,7 @@
     <section *ngIf="!loading">
         <h3><img (click)="goToMainScreen()" src="/assets/arrow_back.png"/> Lista dostępnych połączeń</h3>
         <div *ngFor="let flight of flights">
-            <app-basic-flight [flight]="flight"></app-basic-flight>
+            <app-basic-flight [flight]="flight" (click)="navigateToDetails(flight.iataCode)"></app-basic-flight>
         </div>
     </section>
     <app-spinner *ngIf="loading"></app-spinner>

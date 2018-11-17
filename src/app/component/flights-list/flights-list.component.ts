@@ -12,13 +12,15 @@ import {Airport} from '../../model/airport';
 export class FlightsListComponent implements OnInit {
 
     loading: boolean;
+    sourceACode: string;
+    sourceBCode: string;
 
     flights: Airport[];
 
     constructor(flightService: FlightsConnectService, activeRoute: ActivatedRoute, private router: Router) {
-        const sourceACode = activeRoute.snapshot.params['sourceACode'];
-        const sourceBCode = activeRoute.snapshot.params['sourceBCode'];
-        flightService.findConnections(sourceACode, sourceBCode).subscribe((response: ConnectionsResponse) => {
+        this.sourceACode = activeRoute.snapshot.params['sourceACode'];
+        this.sourceBCode = activeRoute.snapshot.params['sourceBCode'];
+        flightService.findConnections(this.sourceACode, this.sourceBCode).subscribe((response: ConnectionsResponse) => {
                 this.flights = response.connections;
                 this.loading = false;
             },
@@ -34,5 +36,10 @@ export class FlightsListComponent implements OnInit {
 
     goToMainScreen() {
         this.router.navigate(['/']);
+    }
+
+    navigateToDetails(targetCode: string) {
+      console.log('hi');
+      this.router.navigate([`/flights/${this.sourceACode}/${this.sourceBCode}/${targetCode}`]);
     }
 }

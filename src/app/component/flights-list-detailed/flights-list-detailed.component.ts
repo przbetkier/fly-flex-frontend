@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {Routes} from '../../model/routes';
+import {ActivatedRoute, Router} from '@angular/router';
 import {Route} from '../../model/route';
 import {Outbound} from '../../model/outbound';
 import {Airport} from '../../model/airport';
@@ -62,11 +61,10 @@ export class FlightsListDetailedComponent implements OnInit {
       )
     ];
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit() {
-
     this.loading = true;
     setTimeout(() => {
       this.loading = false;
@@ -74,7 +72,8 @@ export class FlightsListDetailedComponent implements OnInit {
   }
 
   goBack() {
-    this.router.navigate(['flights/POZ/POZ']);
+    const sourceACode = this.activatedRoute.snapshot.params['sourceACode'];
+    const sourceBCode = this.activatedRoute.snapshot.params['sourceBCode'];
+    this.router.navigate([`flights/${sourceACode}/${sourceBCode}`]);
   }
-
 }
