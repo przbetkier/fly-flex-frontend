@@ -1,8 +1,7 @@
 <app-spinner *ngIf="loading"></app-spinner>
 <mat-grid-list cols="4" rowHeight="100px" *ngIf="!loading">
   <mat-grid-tile
-    [colspan]="2"
-    [rowspan]="3">
+    [colspan]="2">
 
     <mat-form-field class="select">
       <mat-select [(value)]="you" placeholder="You" (selectionChange)="yourAirportChanged()">
@@ -14,8 +13,7 @@
   </mat-grid-tile>
 
   <mat-grid-tile
-    [colspan]="2"
-    [rowspan]="3">
+    [colspan]="2">
 
     <mat-form-field class="select">
       <mat-select [(value)]="friend" placeholder="Friend" (valueChange)="friendAirportChanged()">
@@ -28,8 +26,7 @@
   </mat-grid-tile>
 
   <mat-grid-tile *ngIf="isDestinationVisible()"
-          [colspan]="4"
-          [rowspan]="1">
+          [colspan]="4">
 
     <mat-form-field class="select">
       <mat-select [(value)]="selectedDestination" placeholder="Cel (zostaw pusty, jeśli chcesz lecieć gdziekolwiek)">
@@ -41,9 +38,7 @@
 
   </mat-grid-tile>
 
-  <mat-grid-tile *ngIf="noConnections"
-                 [colspan]="4"
-                 [rowspan]="1">
+  <mat-grid-tile *ngIf="noConnections" [colspan]="4">
 
     Brak dostępnych połączeń :(
 
