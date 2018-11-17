@@ -4,7 +4,7 @@
     [colspan]="2">
 
     <mat-form-field class="select">
-      <mat-select [(value)]="you" placeholder="You" (selectionChange)="yourAirportChanged()">
+      <mat-select [(value)]="you" placeholder="Ty" (selectionChange)="yourAirportChanged()">
         <mat-option *ngFor="let airport of airports" [value]="airport.iataCode">
           {{airport.name}}
         </mat-option>
@@ -16,7 +16,7 @@
     [colspan]="2">
 
     <mat-form-field class="select">
-      <mat-select [(value)]="friend" placeholder="Friend" (valueChange)="friendAirportChanged()">
+      <mat-select [(value)]="friend" placeholder="Znajomy" (valueChange)="friendAirportChanged()">
         <mat-option *ngFor="let airport of airports" [value]="airport.iataCode">
           {{airport.name}}
         </mat-option>
@@ -52,7 +52,7 @@
 
     <button class="card_travel btn-large" [ngClass]="{'disabled': !canSearch()}" (click)="navigate()">
       <i class="material-icons right">card_travel</i>
-      Search!
+      Szukaj!
     </button>
 
   </mat-grid-tile>
