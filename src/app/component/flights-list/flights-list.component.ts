@@ -1,4 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {BasicFlight} from '../../model/basic-flight';
+import {FlightsMockService} from '../../service/flights.mock.service';
 
 @Component({
   selector: 'app-flights-list',
@@ -7,7 +9,11 @@ import {Component, Input, OnInit} from '@angular/core';
 })
 export class FlightsListComponent implements OnInit {
 
-  constructor() { }
+  flights: BasicFlight[];
+
+  constructor(flightsMock: FlightsMockService) {
+    this.flights = flightsMock.findFlights();
+  }
 
   ngOnInit() {
   }
