@@ -27,6 +27,7 @@ import {BasicFlightComponent} from './component/basic-flight/basic-flight.compon
 import localePl from '@angular/common/locales/pl';
 import localePlExtra from '@angular/common/locales/extra/pl';
 import {registerLocaleData} from '@angular/common';
+import { SpinnerComponent } from './component/common/spinner/spinner.component';
 
 registerLocaleData(localePl, 'pl-PL', localePlExtra);
 
@@ -36,6 +37,7 @@ registerLocaleData(localePl, 'pl-PL', localePlExtra);
     HomepageComponent,
     FlightsListComponent,
     BasicFlightComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
