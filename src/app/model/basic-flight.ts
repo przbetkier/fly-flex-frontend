@@ -1,7 +1,7 @@
 export class BasicFlight {
-    airportName: string;
-    departureA: string;
-    departureB: string;
+    destination: string;
+    sourceA: string;
+    sourceB: string;
     priceA: number;
     priceB: number;
     date: string;

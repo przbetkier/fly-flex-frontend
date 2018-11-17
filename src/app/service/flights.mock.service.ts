@@ -10,11 +10,11 @@ export class FlightsMockService {
     const flights = [];
 
     const basicFlight = new BasicFlight();
-    basicFlight.departureA = 'Londyn';
-    basicFlight.departureB = 'Warszawa';
+    basicFlight.sourceA = 'Londyn';
+    basicFlight.sourceB = 'Warszawa';
     basicFlight.priceA = 40;
     basicFlight.priceB = 50000;
-    basicFlight.airportName = 'Berlin';
+    basicFlight.destination = 'Berlin';
     basicFlight.date = '12/12/2018';
 
     flights.push(basicFlight);
