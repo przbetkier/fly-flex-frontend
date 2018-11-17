@@ -28,6 +28,7 @@ import localePl from '@angular/common/locales/pl';
 import localePlExtra from '@angular/common/locales/extra/pl';
 import {registerLocaleData} from '@angular/common';
 import { SpinnerComponent } from './component/common/spinner/spinner.component';
+import {HttpClientModule} from '@angular/common/http';
 
 registerLocaleData(localePl, 'pl-PL', localePlExtra);
 
@@ -62,6 +63,7 @@ registerLocaleData(localePl, 'pl-PL', localePlExtra);
     NgxMatSelectSearchModule,
     MatAutocompleteModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(
       [
         {path: '', component: HomepageComponent},

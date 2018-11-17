@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {BasicFlight} from '../../model/basic-flight';
 import {FlightsMockService} from '../../service/flights.mock.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {FlightsConnectService} from '../../service/flights-connect.service';
+import {ConnectionsResponse} from '../../model/connections-response';
 
 @Component({
     selector: 'app-flights-list',
@@ -14,17 +16,21 @@ export class FlightsListComponent implements OnInit {
 
     flights: BasicFlight[];
 
-    constructor(flightsMock: FlightsMockService, activeRoute: ActivatedRoute, private router: Router) {
+    constructor(flightService: FlightsConnectService, activeRoute: ActivatedRoute, private router: Router) {
         const sourceACode = activeRoute.snapshot.params['sourceACode'];
         const sourceBCode = activeRoute.snapshot.params['sourceBCode'];
-        setTimeout(() => {
-        this.flights = flightsMock.findFlights(sourceACode, sourceBCode);
-          this.loading = false;
-        }, 1000);
+        flightService.findConnections(sourceACode, sourceBCode).subscribe((response: ConnectionsResponse) => {
+                console.log('success');
+                this.loading = false;
+            },
+            (error) => {
+                console.log(error);
+            }
+        );
     }
 
     ngOnInit() {
-      this.loading = true;
+        this.loading = true;
     }
 
     goToMainScreen() {
