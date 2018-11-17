@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {isNullOrUndefined} from 'util';
 
 export interface Food {
   value: string;
@@ -26,6 +27,10 @@ export class HomepageComponent implements OnInit {
   }
 
   constructor(private router: Router) {
+  }
+
+  canSearch(): boolean {
+    return (!isNullOrUndefined(this.you) && !isNullOrUndefined(this.friend));
   }
 
   navigate() {
