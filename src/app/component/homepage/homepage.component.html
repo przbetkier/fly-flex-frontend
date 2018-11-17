@@ -30,7 +30,11 @@
     [colspan]="4"
     [rowspan]="1">
 
-    <a class="card_travel btn-large" (click)="navigate()"><i class="material-icons right">card_travel</i>Search!</a>
+    <button class="card_travel btn-large" [ngClass]="{'disabled': !canSearch()}" (click)="navigate()">
+      <i class="material-icons right">card_travel</i>
+      Search!
+    </button>
+
   </mat-grid-tile>
 
 </mat-grid-list>
