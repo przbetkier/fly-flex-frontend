@@ -5,7 +5,7 @@
     [rowspan]="3">
 
     <mat-form-field class="select">
-      <mat-select [(value)]="you" placeholder="You">
+      <mat-select [(value)]="you" placeholder="You" (selectionChange)="yourAirportChanged()">
         <mat-option *ngFor="let airport of airports" [value]="airport.iataCode">
           {{airport.name}}
         </mat-option>
@@ -18,7 +18,7 @@
     [rowspan]="3">
 
     <mat-form-field class="select">
-      <mat-select [(value)]="friend" placeholder="Friend">
+      <mat-select [(value)]="friend" placeholder="Friend" (valueChange)="friendAirportChanged()">
         <mat-option *ngFor="let airport of airports" [value]="airport.iataCode">
           {{airport.name}}
         </mat-option>
@@ -27,7 +27,29 @@
 
   </mat-grid-tile>
 
-  <mat-grid-tile
+  <mat-grid-tile *ngIf="isDestinationVisible()"
+          [colspan]="4"
+          [rowspan]="1">
+
+    <mat-form-field class="select">
+      <mat-select [(value)]="selectedDestination" placeholder="Cel (zostaw pusty, jeśli chcesz lecieć gdziekolwiek)">
+        <mat-option *ngFor="let destination of destinations" [value]="destination.iataCode">
+          {{destination.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </mat-grid-tile>
+
+  <mat-grid-tile *ngIf="noConnections"
+                 [colspan]="4"
+                 [rowspan]="1">
+
+    Brak dostępnych połączeń :(
+
+  </mat-grid-tile>
+
+  <mat-grid-tile *ngIf="!noConnections"
     [colspan]="4"
     [rowspan]="1">
 
