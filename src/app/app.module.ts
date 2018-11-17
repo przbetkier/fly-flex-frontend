@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {LOCALE_ID, NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {HomepageComponent} from './component/homepage/homepage.component';
@@ -19,6 +19,11 @@ import {
 } from '@angular/material';
 import {LayoutModule} from '@angular/cdk/layout';
 import {BasicFlightComponent} from './component/basic-flight/basic-flight.component';
+import localePl from '@angular/common/locales/pl';
+import localePlExtra from '@angular/common/locales/extra/pl';
+import {registerLocaleData} from '@angular/common';
+
+registerLocaleData(localePl, 'pl-PL', localePlExtra);
 
 @NgModule({
   declarations: [
@@ -48,7 +53,11 @@ import {BasicFlightComponent} from './component/basic-flight/basic-flight.compon
       ]
     )
   ],
-  providers: [],
+  providers: [{
+      provide: LOCALE_ID,
+      useValue: 'pl-PL'
+  }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
