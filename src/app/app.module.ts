@@ -18,12 +18,14 @@ import {
   MatToolbarModule,
 } from '@angular/material';
 import {LayoutModule} from '@angular/cdk/layout';
+import {BasicFlightComponent} from './component/basic-flight/basic-flight.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
     FlightsListComponent,
+    BasicFlightComponent,
   ],
   imports: [
     BrowserModule,
