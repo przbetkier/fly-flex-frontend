@@ -1,5 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {BasicFlight} from '../../model/basic-flight';
+import {Component, Input} from '@angular/core';
 import {Airport} from '../../model/airport';
 
 @Component({
@@ -7,14 +6,9 @@ import {Airport} from '../../model/airport';
   templateUrl: './basic-flight.component.html',
   styleUrls: ['./basic-flight.component.css']
 })
-export class BasicFlightComponent implements OnInit {
+export class BasicFlightComponent {
 
   @Input()
   flight: Airport;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

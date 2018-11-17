@@ -27,7 +27,10 @@ import {BasicFlightComponent} from './component/basic-flight/basic-flight.compon
 import localePl from '@angular/common/locales/pl';
 import localePlExtra from '@angular/common/locales/extra/pl';
 import {registerLocaleData} from '@angular/common';
-import { SpinnerComponent } from './component/common/spinner/spinner.component';
+import {SpinnerComponent} from './component/common/spinner/spinner.component';
+import {FlightsListDetailedComponent} from './component/flights-list-detailed/flights-list-detailed.component';
+import {DetailedFlightComponent} from './component/detailed-flight/detailed-flight.component';
+import {SingleFlightComponent} from './component/single-flight/single-flight.component';
 import {HttpClientModule} from '@angular/common/http';
 
 registerLocaleData(localePl, 'pl-PL', localePlExtra);
@@ -39,6 +42,9 @@ registerLocaleData(localePl, 'pl-PL', localePlExtra);
     FlightsListComponent,
     BasicFlightComponent,
     SpinnerComponent,
+    FlightsListDetailedComponent,
+    DetailedFlightComponent,
+    SingleFlightComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,7 +73,8 @@ registerLocaleData(localePl, 'pl-PL', localePlExtra);
     RouterModule.forRoot(
       [
         {path: '', component: HomepageComponent},
-        {path: 'flights/:sourceACode/:sourceBCode', component: FlightsListComponent}
+        {path: 'flights/:sourceACode/:sourceBCode', component: FlightsListComponent},
+        {path: 'flights/:sourceACode/:sourceBCode/:targetCode', component: FlightsListDetailedComponent}
       ]
     )
   ],

@@ -1,0 +1,39 @@
+<mat-grid-list cols="3" rowHeight="2:1">
+  <mat-grid-tile>
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+                <span>
+              <img src="/assets/black-plane.png"/>
+              <span class="time">{{date}}</span>
+            </span>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        {{from.name}} ({{from.iataCode}})
+      </mat-list-item>
+    </mat-list>
+
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <span class="direction-arrow">⟶</span>
+  </mat-grid-tile>
+
+  <mat-grid-tile>
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+                <span>
+              <img src="/assets/black-plane.png"/>
+              <span class="time">{{date}}</span>
+            </span>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        {{to.name}} ({{to.iataCode}})
+      </mat-list-item>
+    </mat-list>
+
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-list role="list" dir="ltr" class="price-section">
+  <mat-list-item role="listitem"><span class="price">{{price | currency:'PLN'}}</span></mat-list-item>
+</mat-list>

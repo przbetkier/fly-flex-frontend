@@ -1,4 +1,5 @@
 export class Airport {
-    name: string;
-    iataCode: string;
+  constructor(public iataCode: string,
+              public name: string) {
+  }
 }
