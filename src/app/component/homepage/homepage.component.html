@@ -1,1 +1,9 @@
+<mat-form-field>
+  <mat-select placeholder="Pick an airport">
+    <mat-option *ngFor="let airport of airports" [value]="airport.name">
+      {{airport.iataCode}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
 <p (click)="navigate()">Show flights!</p>
