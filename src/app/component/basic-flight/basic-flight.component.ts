@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {BasicFlight} from '../../model/basic-flight';
+import {Airport} from '../../model/airport';
 
 @Component({
   selector: 'app-basic-flight',
@@ -9,7 +10,7 @@ import {BasicFlight} from '../../model/basic-flight';
 export class BasicFlightComponent implements OnInit {
 
   @Input()
-  flight: BasicFlight;
+  flight: Airport;
 
   constructor() { }
 
