@@ -10,8 +10,10 @@ export class FlightsMockService {
     const flights = [];
 
     const basicFlight = new BasicFlight();
+    basicFlight.departureA = 'Londyn';
+    basicFlight.departureB = 'Warszawa';
     basicFlight.priceA = 40;
-    basicFlight.priceB = 50;
+    basicFlight.priceB = 50000;
     basicFlight.airportName = 'Berlin';
     basicFlight.date = '12/12/2018';
 

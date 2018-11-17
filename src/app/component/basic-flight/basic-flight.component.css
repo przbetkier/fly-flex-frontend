@@ -1,0 +1,11 @@
+.card {
+    max-width: 400px;
+}
+
+.title {
+    font-size: 18px;
+}
+
+.pull-right {
+    float: right;
+}
