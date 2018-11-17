@@ -1,39 +1,39 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {isNullOrUndefined} from 'util';
-
-export interface Food {
-  value: string;
-  viewValue: string;
-}
+import {AirportService} from '../../service/airport.service';
+import {Airport} from '../../model/airport';
 
 @Component({
-  selector: 'app-homepage',
-  templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.css']
+    selector: 'app-homepage',
+    templateUrl: './homepage.component.html',
+    styleUrls: ['./homepage.component.css']
 })
-export class HomepageComponent implements OnInit {
+export class HomepageComponent {
 
-  public airports;
-  public you;
-  public friend;
+    loading: boolean;
 
-  ngOnInit() {
-    this.airports = [
-      {value: 'POZ', viewValue: 'Poznan'},
-      {value: 'BER', viewValue: 'Berlin'},
-      {value: 'LON', viewValue: 'London'}
-    ];
-  }
+    public airports: Airport[];
+    public you: string;
+    public friend: string;
 
-  constructor(private router: Router) {
-  }
+    constructor(private router: Router, airportService: AirportService) {
+        this.loading = true;
+        airportService.findAirports().subscribe((response: any) => {
+                this.airports = response.airports;
+                this.loading = false;
+            },
+            (error) => {
+                console.log(error);
+                this.loading = false;
+            });
+    }
 
-  canSearch(): boolean {
-    return (!isNullOrUndefined(this.you) && !isNullOrUndefined(this.friend));
-  }
+    canSearch(): boolean {
+        return (!isNullOrUndefined(this.you) && !isNullOrUndefined(this.friend));
+    }
 
-  navigate() {
-    this.router.navigateByUrl(`/flights/${this.you}/${this.friend}`);
-  }
+    navigate() {
+        this.router.navigateByUrl(`/flights/${this.you}/${this.friend}`);
+    }
 }

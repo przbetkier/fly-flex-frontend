@@ -1,12 +1,13 @@
-<mat-grid-list cols="4" rowHeight="100px">
+<app-spinner *ngIf="loading"></app-spinner>
+<mat-grid-list cols="4" rowHeight="100px" *ngIf="!loading">
   <mat-grid-tile
     [colspan]="2"
     [rowspan]="3">
 
     <mat-form-field class="select">
       <mat-select [(value)]="you" placeholder="You">
-        <mat-option *ngFor="let airport of airports" [value]="airport.value">
-          {{airport.viewValue}}
+        <mat-option *ngFor="let airport of airports" [value]="airport.iataCode">
+          {{airport.name}}
         </mat-option>
       </mat-select>
     </mat-form-field>
@@ -18,8 +19,8 @@
 
     <mat-form-field class="select">
       <mat-select [(value)]="friend" placeholder="Friend">
-        <mat-option *ngFor="let airport of airports" [value]="airport.value">
-          {{airport.viewValue}}
+        <mat-option *ngFor="let airport of airports" [value]="airport.iataCode">
+          {{airport.name}}
         </mat-option>
       </mat-select>
     </mat-form-field>
