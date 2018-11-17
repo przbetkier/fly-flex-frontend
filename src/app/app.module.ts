@@ -31,6 +31,7 @@ import {SpinnerComponent} from './component/common/spinner/spinner.component';
 import {FlightsListDetailedComponent} from './component/flights-list-detailed/flights-list-detailed.component';
 import {DetailedFlightComponent} from './component/detailed-flight/detailed-flight.component';
 import {SingleFlightComponent} from './component/single-flight/single-flight.component';
+import {HttpClientModule} from '@angular/common/http';
 
 registerLocaleData(localePl, 'pl-PL', localePlExtra);
 
@@ -68,6 +69,7 @@ registerLocaleData(localePl, 'pl-PL', localePlExtra);
     NgxMatSelectSearchModule,
     MatAutocompleteModule,
     FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(
       [
         {path: '', component: HomepageComponent},

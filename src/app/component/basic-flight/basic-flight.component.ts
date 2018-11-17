@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {BasicFlight} from '../../model/basic-flight';
 import {Router} from '@angular/router';
+import {Airport} from '../../model/airport';
 
 @Component({
   selector: 'app-basic-flight',
@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 export class BasicFlightComponent implements OnInit {
 
   @Input()
-  flight: BasicFlight;
+  flight: Airport;
 
   constructor(private router: Router) {
   }

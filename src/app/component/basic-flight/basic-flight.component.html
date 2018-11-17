@@ -1,13 +1,5 @@
 <mat-card class="card" (click)="navigateToDetails()">
     <mat-card-header>
-        <mat-card-title class="title">{{flight.destination}}</mat-card-title>
+        <mat-card-title class="title">{{flight.name}}</mat-card-title>
     </mat-card-header>
-    <mat-card-content>
-        Cena dla lotu z {{flight.sourceA}}: <span class="pull-right"><b>{{flight.priceA | currency:'PLN'}}</b></span> <br/>
-        Cena dla lotu z {{flight.sourceB}}: <span class="pull-right"><b>{{flight.priceB | currency:'PLN'}}</b></span> <br/>
-        Data: <span class="pull-right"><b>{{flight.date | date:'dd/MM/yyyy'}}</b></span>
-    </mat-card-content>
-    <mat-card-actions>
-        <button mat-button>Szczegóły</button>
-    </mat-card-actions>
 </mat-card>

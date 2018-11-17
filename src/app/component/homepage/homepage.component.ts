@@ -1,39 +1,75 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {Router} from '@angular/router';
 import {isNullOrUndefined} from 'util';
-
-export interface Food {
-  value: string;
-  viewValue: string;
-}
+import {AirportService} from '../../service/airport.service';
+import {Airport} from '../../model/airport';
+import {FlightsConnectService} from '../../service/flights-connect.service';
 
 @Component({
-  selector: 'app-homepage',
-  templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.css']
+    selector: 'app-homepage',
+    templateUrl: './homepage.component.html',
+    styleUrls: ['./homepage.component.css']
 })
-export class HomepageComponent implements OnInit {
+export class HomepageComponent {
 
-  public airports;
-  public you;
-  public friend;
+    loading: boolean;
+    noConnections: boolean;
+    loadingDestinations = false;
 
-  ngOnInit() {
-    this.airports = [
-      {value: 'POZ', viewValue: 'Poznan'},
-      {value: 'BER', viewValue: 'Berlin'},
-      {value: 'LON', viewValue: 'London'}
-    ];
-  }
+    public airports: Airport[];
+    public destinations: Airport[];
+    public you: string;
+    public friend: string;
+    public selectedDestination: Airport;
 
-  constructor(private router: Router) {
-  }
+    constructor(private router: Router, airportService: AirportService, private flightService: FlightsConnectService) {
+        this.loading = true;
+        airportService.findAirports().subscribe((response: any) => {
+                this.airports = response.airports;
+                this.loading = false;
+            },
+            (error) => {
+                console.log(error);
+                this.loading = false;
+            });
+    }
 
-  canSearch(): boolean {
-    return (!isNullOrUndefined(this.you) && !isNullOrUndefined(this.friend));
-  }
+    isDestinationVisible(): boolean {
+        return !(isNullOrUndefined(this.destinations)) && !this.noConnections;
+    }
 
-  navigate() {
-    this.router.navigateByUrl(`/flights/${this.you}/${this.friend}`);
-  }
+    canSearch(): boolean {
+        return (!isNullOrUndefined(this.you) && !isNullOrUndefined(this.friend));
+    }
+
+    navigate() {
+        this.router.navigateByUrl(`/flights/${this.you}/${this.friend}`);
+    }
+
+    yourAirportChanged(): void {
+        this.airportChanged();
+    }
+
+    friendAirportChanged(): void {
+        this.airportChanged();
+    }
+
+    private airportChanged() {
+        if (this.canFetchDestinations()) {
+            this.loadingDestinations = true;
+            this.flightService.findConnections(this.you, this.friend).subscribe((response: any) => {
+                    this.destinations = response.connections;
+                    this.noConnections = this.destinations.length === 0;
+                    this.loadingDestinations = false;
+                },
+                (error) => {
+                    console.log(error);
+                    this.loadingDestinations = false;
+                });
+        }
+    }
+
+    private canFetchDestinations(): boolean {
+        return !(isNullOrUndefined(this.you) || isNullOrUndefined(this.friend));
+    }
 }
