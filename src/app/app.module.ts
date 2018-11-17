@@ -49,7 +49,7 @@ registerLocaleData(localePl, 'pl-PL', localePlExtra);
     RouterModule.forRoot(
       [
         {path: '', component: HomepageComponent},
-        {path: 'flights', component: FlightsListComponent}
+        {path: 'flights/:sourceACode/:sourceBCode', component: FlightsListComponent}
       ]
     )
   ],

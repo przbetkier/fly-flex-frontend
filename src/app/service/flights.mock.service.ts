@@ -6,7 +6,7 @@ import {BasicFlight} from '../model/basic-flight';
 })
 export class FlightsMockService {
 
-  findFlights(): BasicFlight[] {
+    findFlights(sourceACode: any, sourceBCode: any): BasicFlight[] {
     const flights = [];
 
     const basicFlight = new BasicFlight();
