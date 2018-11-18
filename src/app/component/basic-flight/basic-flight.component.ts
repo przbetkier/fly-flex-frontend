@@ -21,7 +21,18 @@ export class BasicFlightComponent {
         'Lanzarote': 'lancarote',
         'Alicante': 'alicante',
         'Malaga': 'malaga',
-        'Gdańsk': 'gdansk'
+        'Aalborg': 'Aalborg',
+	'Aarhus': 'aarhus',
+	'Abardeen': 'abardeen',
+	'Agadir': 'agadir',
+	'Alghero': 'alghero',
+	'Almeria': 'almeria',
+	'Amman Jordan': 'amman-jordan',
+	'Belfast-International': 'belfast',
+	'Bristol': 'bristol',
+	'Dublin': 'dublin',
+	'Wilno': 'wilno'
+
     };
 
     findFlightImg(): string {
