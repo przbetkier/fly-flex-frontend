@@ -14,6 +14,8 @@ export class FlightsListDetailedComponent implements OnInit {
   sourceACode: string;
   sourceBCode: string;
   targetCode: string;
+  days: string;
+  offset: string;
   routes: Route[];
   isEmpty = false;
 
@@ -23,7 +25,7 @@ export class FlightsListDetailedComponent implements OnInit {
   ngOnInit() {
     this.setUpCodes();
     this.loading = true;
-    this.routesService.findRoutes(this.sourceACode, this.sourceBCode, this.targetCode)
+    this.routesService.findRoutes(this.sourceACode, this.sourceBCode, this.targetCode, this.days, this.offset)
       .subscribe(response => {
         console.log(response.routes);
         this.routes = response.routes;
@@ -38,10 +40,8 @@ export class FlightsListDetailedComponent implements OnInit {
     this.sourceACode = this.activatedRoute.snapshot.params['sourceACode'];
     this.sourceBCode = this.activatedRoute.snapshot.params['sourceBCode'];
     this.targetCode = this.activatedRoute.snapshot.params['targetCode'];
-  }
-
-  goBack() {
-    this.router.navigate([`flights/${this.sourceACode}/${this.sourceBCode}`]);
+    this.days = this.activatedRoute.snapshot.params['days'];
+    this.offset = this.activatedRoute.snapshot.params['offset'];
   }
 
   sortByDate() {
