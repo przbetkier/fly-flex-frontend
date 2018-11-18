@@ -1,0 +1,19 @@
+.navbar {
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.logo {
+    font-size: 150px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.first {
+    color: #25aae2;
+}
+
+.second {
+    color: #2bbbad;
+}

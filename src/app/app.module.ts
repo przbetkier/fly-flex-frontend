@@ -32,6 +32,7 @@ import {FlightsListDetailedComponent} from './component/flights-list-detailed/fl
 import {DetailedFlightComponent} from './component/detailed-flight/detailed-flight.component';
 import {SingleFlightComponent} from './component/single-flight/single-flight.component';
 import {HttpClientModule} from '@angular/common/http';
+import {NavbarComponent} from './component/navbar/navbar.component';
 
 registerLocaleData(localePl, 'pl-PL', localePlExtra);
 
@@ -45,6 +46,7 @@ registerLocaleData(localePl, 'pl-PL', localePlExtra);
     FlightsListDetailedComponent,
     DetailedFlightComponent,
     SingleFlightComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
