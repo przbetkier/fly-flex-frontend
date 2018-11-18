@@ -22,11 +22,14 @@ export class HomepageComponent {
     public friend: string;
     public selectedDestination: Airport;
     public days: number;
+    public offset: number;
 
     constructor(private router: Router, airportService: AirportService, private flightService: FlightsConnectService) {
         this.loading = true;
         airportService.findAirports().subscribe((response: any) => {
                 this.airports = response.airports;
+                this.days = 5;
+                this.offset = 1;
                 this.loading = false;
             },
             (error) => {
@@ -45,9 +48,9 @@ export class HomepageComponent {
 
     navigate() {
       if (isNullOrUndefined(this.selectedDestination)) {
-        this.router.navigateByUrl(`/flights/${this.you}/${this.friend}`);
+        this.router.navigateByUrl(`/flights/${this.you}/${this.friend}/${this.days}/${this.offset}`);
       } else {
-        this.router.navigateByUrl(`/flights/${this.you}/${this.friend}/${this.selectedDestination}`);
+        this.router.navigateByUrl(`/flights/${this.you}/${this.friend}/${this.selectedDestination}/${this.days}/${this.offset}`);
       }
     }
 

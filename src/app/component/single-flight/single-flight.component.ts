@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Airport} from '../../model/airport';
 
 @Component({
@@ -6,16 +6,11 @@ import {Airport} from '../../model/airport';
   templateUrl: './single-flight.component.html',
   styleUrls: ['./single-flight.component.css']
 })
-export class SingleFlightComponent implements OnInit {
+export class SingleFlightComponent {
 
   @Input() from: Airport;
   @Input() to: Airport;
   @Input() date: string;
   @Input() price: number;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

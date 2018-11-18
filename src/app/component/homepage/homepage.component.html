@@ -51,7 +51,14 @@
     <span>{{days}}</span>
   </mat-grid-tile>
 
+      <mat-grid-tile *ngIf="isDestinationVisible()"
+                     [colspan]="4">
 
+        <div>
+          <p>Plus - minus dni</p><mat-slider min="1" max="3" step="1"  [(ngModel)]="offset"></mat-slider>
+        </div>
+        <span>{{offset}}</span>
+      </mat-grid-tile>
 
   <mat-grid-tile *ngIf="noConnections" [colspan]="4">
 
