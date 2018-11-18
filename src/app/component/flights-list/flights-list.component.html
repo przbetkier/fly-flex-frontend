@@ -1,7 +1,8 @@
 <div class="list-container">
     <section *ngIf="!loading">
-        <h3>Lista dostępnych połączeń</h3>
-
+        <mat-card>
+            <h3 class="aligned">Lista dostępnych połączeń</h3>
+        </mat-card>
         <mat-grid-list cols="4" rowHeight="400px">
             <mat-grid-tile *ngFor="let flight of flights">
                 <app-basic-flight [flight]="flight" (click)="navigateToDetails(flight.iataCode)"></app-basic-flight>

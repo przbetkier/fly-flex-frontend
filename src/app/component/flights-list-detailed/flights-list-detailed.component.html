@@ -1,16 +1,17 @@
 <div class="list-container">
-  <section *ngIf="!loading && !isEmpty">
-    <h3>Lista połączeń do {{targetCode}}:</h3>
+    <section *ngIf="!loading && !isEmpty">
+        <mat-card>
+            <h3 class="aligned">Lista połączeń do {{targetCode}}:</h3>
 
-    <button class="card_travel btn-large" (click)="sortByDate()">POKAŻ NAJBLIŻSZE</button>
-    <button class="card_travel btn-large" (click)="sortByPrice()">POKAŻ NAJTAŃSZE</button>
-
-    <div *ngFor="let route of routes">
-      <app-detailed-flight [route]="route" [total]="getTotalPrice(route)"></app-detailed-flight>
-    </div>
-  </section>
-  <section *ngIf="!loading && isEmpty">
-    W najbliższym czasie niestety nie ma żadnych połączeń :(
-  </section>
-  <app-spinner *ngIf="loading"></app-spinner>
+            <button class="card_travel btn-large aligned" (click)="sortByDate()">POKAŻ NAJBLIŻSZE</button>
+            <button class="card_travel btn-large aligned" (click)="sortByPrice()">POKAŻ NAJTAŃSZE</button>
+        </mat-card>
+        <div *ngFor="let route of routes">
+            <app-detailed-flight [route]="route" [total]="getTotalPrice(route)"></app-detailed-flight>
+        </div>
+    </section>
+    <section *ngIf="!loading && isEmpty">
+        W najbliższym czasie niestety nie ma żadnych połączeń :(
+    </section>
+    <app-spinner *ngIf="loading"></app-spinner>
 </div>

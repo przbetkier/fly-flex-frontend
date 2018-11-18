@@ -6,3 +6,7 @@
 .img-button {
     cursor: pointer;
 }
+
+.aligned {
+    margin-left: 80px;
+}
