@@ -21,7 +21,20 @@ export class BasicFlightComponent {
         'Lanzarote': 'lancarote',
         'Alicante': 'alicante',
         'Malaga': 'malaga',
-        'Gdańsk': 'gdansk'
+        'Gdańsk': 'gdansk',
+        'Wrocław': 'wroclaw',
+        'Oslo-Torp': 'oslo',
+        'Rzym-Ciampino': 'rzym',
+        'Kolonia': 'koln',
+        'Zadar': 'zadar',
+        'Mediolan-Bergamo': 'medional',
+        'Kijów-Boryspol': 'kijow',
+        'Barcelona-El Prat': 'barcelona',
+        'Lizbona': 'lisbon',
+        'Sztokholm-Skavsta': 'sztokholm',
+        'Rodos': 'rodos',
+        'Malta' : 'malta'
+
     };
 
     findFlightImg(): string {
