@@ -2,14 +2,16 @@
   <section *ngIf="!loading && !isEmpty">
     <h2><img (click)="goBack()" src="/assets/arrow_back.png"/> Lista połączeń do {{targetCode}}:</h2>
 
-    <button class="card_travel btn-large" (click)="sortByDate()">POKAŻ NAJBLIŻSZE</button>
-    <button class="card_travel btn-large" (click)="sortByPrice()">POKAŻ NAJTAŃSZE</button>
+    <div class="sorting-buttons">
+      <button class="card_travel btn-large" (click)="sortByDate()">POKAŻ NAJBLIŻSZE</button>
+      <button class="card_travel btn-large" (click)="sortByPrice()">POKAŻ NAJTAŃSZE</button>
+    </div>
 
     <div *ngFor="let route of routes">
       <app-detailed-flight [route]="route" [total]="getTotalPrice(route)"></app-detailed-flight>
     </div>
   </section>
-  <section *ngIf="!loading && isEmpty">
+  <section *ngIf="!loading && isEmpty" class="card">
     W najbliższym czasie niestety nie ma żadnych połączeń :(
   </section>
   <app-spinner *ngIf="loading"></app-spinner>
