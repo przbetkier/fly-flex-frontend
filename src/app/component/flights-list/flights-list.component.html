@@ -1,6 +1,6 @@
 <div class="list-container">
     <section *ngIf="!loading">
-        <h3><img class="img-button" (click)="goToMainScreen()" src="/assets/arrow_back.png"/> Lista dostępnych połączeń</h3>
+        <h3>Lista dostępnych połączeń</h3>
 
         <mat-grid-list cols="4" rowHeight="400px">
             <mat-grid-tile *ngFor="let flight of flights">

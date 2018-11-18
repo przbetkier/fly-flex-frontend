@@ -1,6 +1,6 @@
 <div class="list-container">
   <section *ngIf="!loading && !isEmpty">
-    <h2><img (click)="goBack()" src="/assets/arrow_back.png"/> Lista połączeń do {{targetCode}}:</h2>
+    <h3>Lista połączeń do {{targetCode}}:</h3>
 
     <button class="card_travel btn-large" (click)="sortByDate()">POKAŻ NAJBLIŻSZE</button>
     <button class="card_travel btn-large" (click)="sortByPrice()">POKAŻ NAJTAŃSZE</button>
