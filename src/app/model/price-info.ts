@@ -1,5 +1,5 @@
 export class PriceInfo {
-  constructor(public oneway: number,
+  constructor(public oneWay: number,
               public returnWay: number) {
   }
 }

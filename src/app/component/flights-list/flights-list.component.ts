@@ -39,7 +39,6 @@ export class FlightsListComponent implements OnInit {
     }
 
     navigateToDetails(targetCode: string) {
-      console.log('hi');
       this.router.navigate([`/flights/${this.sourceACode}/${this.sourceBCode}/${targetCode}`]);
     }
 }

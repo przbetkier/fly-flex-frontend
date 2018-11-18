@@ -1,10 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {Route} from '../../model/route';
-import {Outbound} from '../../model/outbound';
-import {Airport} from '../../model/airport';
-import {DateInfo} from '../../model/date-info';
-import {PriceInfo} from '../../model/price-info';
+import {RoutesService} from '../../service/routes.service';
 
 @Component({
   selector: 'app-flights-list-detailed',
@@ -14,66 +11,49 @@ import {PriceInfo} from '../../model/price-info';
 export class FlightsListDetailedComponent implements OnInit {
 
   loading: boolean;
+  sourceACode: string;
+  sourceBCode: string;
+  targetCode: string;
+  routes: Route[];
+  isEmpty = false;
 
-  public routes =
-    [
-      new Route(
-        new Outbound(
-          new Airport('POZ', 'Poznań'),
-          new Airport('WAR', 'Warsaw'),
-          new DateInfo('2018-10-10', '2018-10-15'),
-          new PriceInfo(40, 120)
-        ),
-        new Outbound(
-          new Airport('BXL', 'Berlin'),
-          new Airport('WAR', 'Warsaw'),
-          new DateInfo('2018-10-10', '2018-10-15'),
-          new PriceInfo(200, 310)
-        ),
-      ),
-      new Route(
-        new Outbound(
-          new Airport('POZ', 'Poznań'),
-          new Airport('WAR', 'Warsaw'),
-          new DateInfo('2018-10-10', '2018-10-15'),
-          new PriceInfo(40, 120)
-        ),
-        new Outbound(
-          new Airport('BXL', 'Berlin'),
-          new Airport('WAR', 'Warsaw'),
-          new DateInfo('2018-10-10', '2018-10-15'),
-          new PriceInfo(200, 310)
-        ),
-      ),
-      new Route(
-        new Outbound(
-          new Airport('POZ', 'Poznań'),
-          new Airport('WAR', 'Warsaw'),
-          new DateInfo('2018-10-10', '2018-10-15'),
-          new PriceInfo(40, 120)
-        ),
-        new Outbound(
-          new Airport('BXL', 'Berlin'),
-          new Airport('WAR', 'Warsaw'),
-          new DateInfo('2018-10-10', '2018-10-15'),
-          new PriceInfo(200, 310)
-        ),
-      )
-    ];
-
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private routesService: RoutesService) {
   }
 
   ngOnInit() {
+    this.setUpCodes();
     this.loading = true;
-    setTimeout(() => {
-      this.loading = false;
-    }, 1000);
+    this.routesService.findRoutes(this.sourceACode, this.sourceBCode, this.targetCode)
+      .subscribe(response => {
+        console.log(response.routes);
+        this.routes = response.routes;
+        this.loading = false;
+        if (this.routes.length === 0) {
+          this.isEmpty = true;
+        }
+      });
+  }
+
+  private setUpCodes() {
+    this.sourceACode = this.activatedRoute.snapshot.params['sourceACode'];
+    this.sourceBCode = this.activatedRoute.snapshot.params['sourceBCode'];
+    this.targetCode = this.activatedRoute.snapshot.params['targetCode'];
   }
 
   goBack() {
-    const sourceACode = this.activatedRoute.snapshot.params['sourceACode'];
-    const sourceBCode = this.activatedRoute.snapshot.params['sourceBCode'];
-    this.router.navigate([`flights/${sourceACode}/${sourceBCode}`]);
+    this.router.navigate([`flights/${this.sourceACode}/${this.sourceBCode}`]);
+  }
+
+  sortByDate() {
+    this.routes.sort((one, two) => (one.firstOutbound.date.departure < two.secondOutbound.date.departure ? -1 : 1));
+  }
+
+  public sortByPrice() {
+    this.routes.sort((one, two) => (this.getTotalPrice(one) < this.getTotalPrice(two) ? -1 : 1));
+  }
+
+  public getTotalPrice(route: Route): number {
+    return route.firstOutbound.price.returnWay + route.firstOutbound.price.oneWay +
+      route.secondOutbound.price.returnWay + route.secondOutbound.price.oneWay;
   }
 }

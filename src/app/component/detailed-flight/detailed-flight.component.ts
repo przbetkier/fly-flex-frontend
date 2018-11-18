@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Route} from '../../model/route';
 
 @Component({
@@ -6,14 +6,9 @@ import {Route} from '../../model/route';
   templateUrl: './detailed-flight.component.html',
   styleUrls: ['./detailed-flight.component.css']
 })
-export class DetailedFlightComponent implements OnInit {
+export class DetailedFlightComponent {
 
   @Input() route: Route;
-
-  constructor() {
-  }
-
-  ngOnInit() {
-  }
+  @Input() total: number;
 
 }
