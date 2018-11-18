@@ -12,5 +12,6 @@ export class SingleFlightComponent {
   @Input() to: Airport;
   @Input() date: string;
   @Input() price: number;
+  @Input() currencyCode: string;
 
 }

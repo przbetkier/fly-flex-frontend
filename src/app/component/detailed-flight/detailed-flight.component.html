@@ -11,16 +11,18 @@
         <app-single-flight [date]="route.firstOutbound.date.departure"
                            [from]="route.firstOutbound.departureAirport"
                            [to]="route.firstOutbound.arrivalAirport"
-                           [price]="route.firstOutbound.price.oneWay">
+                           [price]="route.firstOutbound.price.oneWay"
+                           [currencyCode]="route.firstOutbound.price.currency">
 
         </app-single-flight>
         <app-single-flight [date]="route.firstOutbound.date.returnWay"
                            [from]="route.firstOutbound.arrivalAirport"
                            [to]="route.firstOutbound.departureAirport"
-                           [price]="route.firstOutbound.price.returnWay">
+                           [price]="route.firstOutbound.price.returnWay"
+                           [currencyCode]="route.firstOutbound.price.currency">
         </app-single-flight>
         <p class="price">
-          Koszt 1. osoby: {{route.firstOutbound.price.returnWay + route.firstOutbound.price.oneWay | currency: 'PLN'}}
+          Koszt 1. osoby: {{route.firstOutbound.price.returnWay + route.firstOutbound.price.oneWay | currency: route.firstOutbound.price.currency}}
         </p>
       </mat-card-content>
     </mat-card>
@@ -37,15 +39,17 @@
         <app-single-flight [date]="route.secondOutbound.date.departure"
                            [from]="route.secondOutbound.departureAirport"
                            [to]="route.secondOutbound.arrivalAirport"
-                           [price]="route.secondOutbound.price.oneWay">
+                           [price]="route.secondOutbound.price.oneWay"
+                           [currencyCode]="route.secondOutbound.price.currency">
         </app-single-flight>
         <app-single-flight [date]="route.secondOutbound.date.returnWay"
                            [from]="route.secondOutbound.arrivalAirport"
                            [to]="route.secondOutbound.departureAirport"
-                           [price]="route.secondOutbound.price.returnWay">
+                           [price]="route.secondOutbound.price.returnWay"
+                           [currencyCode]="route.secondOutbound.price.currency">
         </app-single-flight>
         <p class="price">
-          Koszt 2. osoby: {{route.secondOutbound.price.returnWay + route.secondOutbound.price.oneWay | currency: 'PLN'}}
+          Koszt 2. osoby: {{route.secondOutbound.price.returnWay + route.secondOutbound.price.oneWay | currency: route.secondOutbound.price.currency}}
         </p>
       </mat-card-content>
     </mat-card>
@@ -53,7 +57,7 @@
 
   <mat-grid-tile [colspan]="4" [rowspan]="1">
     <mat-card class="card single">
-     Razem zapłacicie: <span class="price"> {{total | currency: 'PLN'}}</span>
+     Razem zapłacicie: <span class="price"> {{total | currency: route.secondOutbound.price.currency}}</span>
     </mat-card>
   </mat-grid-tile>
 </mat-grid-list>
