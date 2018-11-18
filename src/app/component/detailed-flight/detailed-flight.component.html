@@ -11,13 +11,15 @@
         <app-single-flight [date]="route.firstOutbound.date.departure"
                            [from]="route.firstOutbound.departureAirport"
                            [to]="route.firstOutbound.arrivalAirport"
-                           [price]="route.firstOutbound.price.oneWay">
+                           [price]="route.firstOutbound.price.oneWay"
+                           [currencyCode]="route.firstOutbound.price.currency">
 
         </app-single-flight>
         <app-single-flight [date]="route.firstOutbound.date.returnWay"
                            [from]="route.firstOutbound.arrivalAirport"
                            [to]="route.firstOutbound.departureAirport"
-                           [price]="route.firstOutbound.price.returnWay">
+                           [price]="route.firstOutbound.price.returnWay"
+                           [currencyCode]="route.firstOutbound.price.currency">
         </app-single-flight>
         <p class="price">
           Koszt 1. osoby: {{route.firstOutbound.price.returnWay + route.firstOutbound.price.oneWay | currency: 'PLN'}}
@@ -37,12 +39,14 @@
         <app-single-flight [date]="route.secondOutbound.date.departure"
                            [from]="route.secondOutbound.departureAirport"
                            [to]="route.secondOutbound.arrivalAirport"
-                           [price]="route.secondOutbound.price.oneWay">
+                           [price]="route.secondOutbound.price.oneWay"
+                           [currencyCode]="route.secondOutbound.price.currency">
         </app-single-flight>
         <app-single-flight [date]="route.secondOutbound.date.returnWay"
                            [from]="route.secondOutbound.arrivalAirport"
                            [to]="route.secondOutbound.departureAirport"
-                           [price]="route.secondOutbound.price.returnWay">
+                           [price]="route.secondOutbound.price.returnWay"
+                           [currencyCode]="route.secondOutbound.price.currency">
         </app-single-flight>
         <p class="price">
           Koszt 2. osoby: {{route.secondOutbound.price.returnWay + route.secondOutbound.price.oneWay | currency: 'PLN'}}
