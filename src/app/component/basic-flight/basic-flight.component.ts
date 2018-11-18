@@ -44,7 +44,10 @@ export class BasicFlightComponent {
     'Belfast-International': 'belfast',
     'Bristol': 'bristol',
     'Dublin': 'dublin',
-    'Wilno': 'wilno'
+    'Wilno': 'wilno',
+    'Edyndburg': 'edynburg',
+    'Tel Aviv': 'tel-aviv',
+    'Eilat (Ovda)': 'ejlat'
 
   };
 
