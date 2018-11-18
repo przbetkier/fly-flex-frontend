@@ -30,7 +30,7 @@ export class BasicFlightComponent {
     'Mediolan-Bergamo': 'medional',
     'Kijów-Boryspol': 'kijow',
     'Barcelona-El Prat': 'barcelona',
-    'Lizbona': 'lisbon',
+    'Lisbon': 'lisbon',
     'Sztokholm-Skavsta': 'sztokholm',
     'Rodos': 'rodos',
     'Malta': 'malta',
@@ -44,7 +44,11 @@ export class BasicFlightComponent {
     'Belfast-International': 'belfast',
     'Bristol': 'bristol',
     'Dublin': 'dublin',
-    'Wilno': 'wilno'
+    'Wilno': 'wilno',
+    'Edyndburg': 'edynburg',
+    'Tel Aviv': 'tel-aviv',
+    'Eilat (Ovda)': 'ejlat',
+    'Atenty': 'ateny'
 
   };
 
