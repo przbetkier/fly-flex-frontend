@@ -21,6 +21,7 @@ export class HomepageComponent {
     public you: string;
     public friend: string;
     public selectedDestination: Airport;
+    public days: number;
 
     constructor(private router: Router, airportService: AirportService, private flightService: FlightsConnectService) {
         this.loading = true;

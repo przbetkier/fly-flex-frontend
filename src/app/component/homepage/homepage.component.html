@@ -42,7 +42,19 @@
 
         </mat-grid-tile>
 
-        <mat-grid-tile *ngIf="noConnections" [colspan]="4">
+  <mat-grid-tile *ngIf="isDestinationVisible()"
+                 [colspan]="4">
+
+    <div>
+      <p>Długość podróży (dni)</p><mat-slider min="1" max="20" step="1"  [(ngModel)]="days"></mat-slider>
+    </div>
+    <span>{{days}}</span>
+  </mat-grid-tile>
+
+
+
+  <mat-grid-tile *ngIf="noConnections" [colspan]="4">
+
 
             Brak dostępnych połączeń :(
 

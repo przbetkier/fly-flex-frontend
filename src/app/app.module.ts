@@ -1,4 +1,4 @@
-import {BrowserModule} from '@angular/platform-browser';
+import {BrowserModule, HAMMER_GESTURE_CONFIG} from '@angular/platform-browser';
 import {LOCALE_ID, NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
@@ -7,6 +7,7 @@ import {RouterModule} from '@angular/router';
 import {FlightsListComponent} from './component/flights-list/flights-list.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {
+  GestureConfig,
   MatAutocompleteModule,
   MatButtonModule,
   MatCardModule,
@@ -18,6 +19,7 @@ import {
   MatOptionModule,
   MatSelectModule,
   MatSidenavModule,
+  MatSliderModule,
   MatToolbarModule,
 } from '@angular/material';
 import {LayoutModule} from '@angular/cdk/layout';
@@ -49,11 +51,11 @@ registerLocaleData(localePl, 'pl-PL', localePlExtra);
     NavbarComponent
   ],
   imports: [
-    BrowserModule,
-    BrowserModule,
     BrowserAnimationsModule,
+    BrowserModule,
     LayoutModule,
     MatOptionModule,
+    MatSliderModule,
     MatToolbarModule,
     MatFormFieldModule,
     MatButtonModule,
@@ -65,7 +67,6 @@ registerLocaleData(localePl, 'pl-PL', localePlExtra);
     MatGridListModule,
     MatSelectModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
     MatSelectModule,
     MatFormFieldModule,
     NgxMatSelectSearchModule,
@@ -80,10 +81,16 @@ registerLocaleData(localePl, 'pl-PL', localePlExtra);
       ]
     )
   ],
-  providers: [{
-    provide: LOCALE_ID,
-    useValue: 'pl-PL'
-  }],
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: 'pl-PL'
+    },
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: GestureConfig
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
