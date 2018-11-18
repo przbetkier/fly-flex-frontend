@@ -9,6 +9,10 @@
 
 body {
     font-family: nerisblack_italic;
+    font-size: 18px;
+
+    background-image:url(assets/background.jpg);
+    background-repeat:no-repeat;
     background-size:cover;
-    background: url(assets/background.jpg) no-repeat fixed;
+    background-attachment: fixed;
 }

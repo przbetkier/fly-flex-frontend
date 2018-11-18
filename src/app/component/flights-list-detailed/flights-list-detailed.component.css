@@ -1,3 +1,7 @@
 .aligned {
     margin-left: 80px;
 }
+
+.centered {
+    text-align: center;
+}
