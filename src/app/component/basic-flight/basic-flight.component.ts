@@ -48,7 +48,7 @@ export class BasicFlightComponent {
     'Edyndburg': 'edynburg',
     'Tel Aviv': 'tel-aviv',
     'Eilat (Ovda)': 'ejlat',
-    'Atenty': 'ateny'
+    'Ateny': 'ateny'
 
   };
 
