@@ -2,9 +2,9 @@
   <section *ngIf="!loading">
     <h2><img (click)="goBack()" src="/assets/arrow_back.png"/> Lista połączeń do POZ</h2>
 
-<div *ngFor="let route of routes">
+    <div *ngFor="let route of routes">
       <app-detailed-flight [route]="route"></app-detailed-flight>
-</div>
+    </div>
   </section>
   <app-spinner *ngIf="loading"></app-spinner>
 </div>
