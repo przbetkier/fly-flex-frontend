@@ -1,2 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@font-face {
+    font-family: 'nerisblack_italic';
+    url('Neris-BlackItalic-webfont.woff') format('woff'), font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: nerisblack_italic;
+    background-size:cover;
+    background: url(assets/background.jpg) no-repeat fixed;
+}

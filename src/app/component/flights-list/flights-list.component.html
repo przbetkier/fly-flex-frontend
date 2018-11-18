@@ -1,9 +1,13 @@
 <div class="list-container">
     <section *ngIf="!loading">
-        <h3><img (click)="goToMainScreen()" src="/assets/arrow_back.png"/> Lista dostępnych połączeń</h3>
-        <div *ngFor="let flight of flights">
-            <app-basic-flight [flight]="flight" (click)="navigateToDetails(flight.iataCode)"></app-basic-flight>
-        </div>
+        <mat-card>
+            <h3 class="aligned">Lista dostępnych połączeń</h3>
+        </mat-card>
+        <mat-grid-list cols="4" rowHeight="400px">
+            <mat-grid-tile *ngFor="let flight of flights">
+                <app-basic-flight [flight]="flight" (click)="navigateToDetails(flight.iataCode)"></app-basic-flight>
+            </mat-grid-tile>
+        </mat-grid-list>
     </section>
     <app-spinner *ngIf="loading"></app-spinner>
 </div>

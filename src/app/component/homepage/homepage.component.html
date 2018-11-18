@@ -1,44 +1,46 @@
 <app-spinner *ngIf="loading"></app-spinner>
-<mat-grid-list cols="4" rowHeight="100px" *ngIf="!loading">
-  <mat-grid-tile
-    [colspan]="2">
+<mat-card>
+    <mat-grid-list cols="4" rowHeight="100px" *ngIf="!loading">
+        <mat-grid-tile
+                [colspan]="2">
 
-    <mat-form-field class="select">
-      <mat-select [(value)]="you" placeholder="Ty" (selectionChange)="yourAirportChanged()">
-        <mat-option *ngFor="let airport of airports" [value]="airport.iataCode">
-          {{airport.name}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-  </mat-grid-tile>
+            <mat-form-field class="select">
+                <mat-select [(value)]="you" placeholder="Ty" (selectionChange)="yourAirportChanged()">
+                    <mat-option *ngFor="let airport of airports" [value]="airport.iataCode">
+                        {{airport.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </mat-grid-tile>
 
-  <mat-grid-tile
-    [colspan]="2">
+        <mat-grid-tile
+                [colspan]="2">
 
-    <mat-form-field class="select">
-      <mat-select [(value)]="friend" placeholder="Znajomy" (valueChange)="friendAirportChanged()">
-        <mat-option *ngFor="let airport of airports" [value]="airport.iataCode">
-          {{airport.name}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+            <mat-form-field class="select">
+                <mat-select [(value)]="friend" placeholder="Znajomy" (valueChange)="friendAirportChanged()">
+                    <mat-option *ngFor="let airport of airports" [value]="airport.iataCode">
+                        {{airport.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
 
-  </mat-grid-tile>
+        </mat-grid-tile>
 
-  <app-spinner *ngIf="loadingDestinations"></app-spinner>
+        <app-spinner *ngIf="loadingDestinations"></app-spinner>
 
-  <mat-grid-tile *ngIf="isDestinationVisible()"
-          [colspan]="4">
+        <mat-grid-tile *ngIf="isDestinationVisible()"
+                       [colspan]="4">
 
-    <mat-form-field class="select">
-      <mat-select [(value)]="selectedDestination" placeholder="Cel (zostaw pusty, jeśli chcesz lecieć gdziekolwiek)">
-        <mat-option *ngFor="let destination of destinations" [value]="destination.iataCode">
-          {{destination.name}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+            <mat-form-field class="select">
+                <mat-select [(value)]="selectedDestination"
+                            placeholder="Cel (zostaw pusty, jeśli chcesz lecieć gdziekolwiek)">
+                    <mat-option *ngFor="let destination of destinations" [value]="destination.iataCode">
+                        {{destination.name}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
 
-  </mat-grid-tile>
+        </mat-grid-tile>
 
   <mat-grid-tile *ngIf="isDestinationVisible()"
                  [colspan]="4">
@@ -53,20 +55,22 @@
 
   <mat-grid-tile *ngIf="noConnections" [colspan]="4">
 
-    Brak dostępnych połączeń :(
 
-  </mat-grid-tile>
+            Brak dostępnych połączeń :(
 
-  <mat-grid-tile *ngIf="!noConnections"
-    [colspan]="4"
-    [rowspan]="1">
+        </mat-grid-tile>
 
-    <button class="card_travel btn-large" [ngClass]="{'disabled': !canSearch()}" (click)="navigate()">
-      <i class="material-icons right">card_travel</i>
-      Szukaj!
-    </button>
+        <mat-grid-tile *ngIf="!noConnections"
+                       [colspan]="4"
+                       [rowspan]="1">
 
-  </mat-grid-tile>
+            <button class="card_travel btn-large" [ngClass]="{'disabled': !canSearch()}" (click)="navigate()">
+                <i class="material-icons right">card_travel</i>
+                Szukaj!
+            </button>
 
-</mat-grid-list>
+        </mat-grid-tile>
+
+    </mat-grid-list>
+</mat-card>
 
